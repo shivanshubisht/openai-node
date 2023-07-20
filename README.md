@@ -55,8 +55,8 @@ async function main() {
     messages: [{ role: 'user', content: 'Say this is a test' }],
     stream: true,
   });
-  for await (const part of stream) {
-    process.stdout.write(part.choices[0]?.text || '');
+  for await (const part of completion) {
+    process.stdout.write(part.choices[0]?.delta.content || '');
   }
 }
 
